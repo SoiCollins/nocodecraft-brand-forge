@@ -10,6 +10,7 @@ interface ProjectCardProps {
   link: string;
   tags: string[];
   className?: string;
+  style?: React.CSSProperties;
 }
 
 const ProjectCard = ({ 
@@ -18,13 +19,17 @@ const ProjectCard = ({
   image, 
   link,
   tags,
-  className 
+  className,
+  style
 }: ProjectCardProps) => {
   return (
-    <div className={cn(
-      "group overflow-hidden rounded-xl bg-white shadow-sm border border-slate-100",
-      className
-    )}>
+    <div 
+      className={cn(
+        "group overflow-hidden rounded-xl bg-white shadow-sm border border-slate-100",
+        className
+      )}
+      style={style}
+    >
       <div className="aspect-video overflow-hidden">
         <img 
           src={image} 
