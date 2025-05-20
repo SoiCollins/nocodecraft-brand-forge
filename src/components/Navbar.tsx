@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import Button from './Button';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,7 +30,7 @@ const Navbar = () => {
       className={cn(
         'fixed w-full z-50 transition-all duration-300',
         isScrolled 
-          ? 'py-3 bg-white shadow-md' 
+          ? 'py-3 bg-white/95 backdrop-blur-sm shadow-md' 
           : 'py-5 bg-transparent'
       )}
     >
@@ -48,37 +49,37 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="font-medium text-slate-600 hover:text-navy-800 transition-colors"
+              className="font-medium text-slate-600 hover:text-navy-800 transition-colors after:content-[''] after:block after:w-0 after:h-0.5 after:bg-navy-800 after:transition-all hover:after:w-full"
             >
               {link.name}
             </a>
           ))}
-          <Button variant="primary" size="md">Get in Touch</Button>
+          <Button>Get in Touch</Button>
         </div>
 
         {/* Mobile Menu Button */}
         <button 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2"
+          className="md:hidden p-2 rounded-md bg-white/80 backdrop-blur-sm"
           aria-label="Toggle menu"
         >
-          <div className="w-6 h-5 flex flex-col justify-between">
-            <span className={`h-0.5 w-full bg-navy-900 transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`h-0.5 bg-navy-900 transition-all ${mobileMenuOpen ? 'opacity-0' : 'w-full'}`}></span>
-            <span className={`h-0.5 w-full bg-navy-900 transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-          </div>
+          {mobileMenuOpen ? (
+            <X className="h-6 w-6 text-navy-900" />
+          ) : (
+            <Menu className="h-6 w-6 text-navy-900" />
+          )}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden absolute w-full bg-white shadow-lg transition-all duration-300 overflow-hidden ${mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="container-width py-4 flex flex-col space-y-4">
+      <div className={`md:hidden absolute w-full bg-white/95 backdrop-blur-sm shadow-lg transition-all duration-300 overflow-hidden ${mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="container-width py-6 flex flex-col space-y-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="font-medium text-slate-600 hover:text-navy-800 py-2 transition-colors"
+              className="font-medium text-slate-600 hover:text-navy-800 py-2 border-b border-slate-100 transition-colors"
             >
               {link.name}
             </a>

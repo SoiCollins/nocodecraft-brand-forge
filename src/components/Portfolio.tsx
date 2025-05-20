@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
 import Button from './Button';
+import { Badge } from './ui/badge';
+import { motion } from 'framer-motion';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -86,24 +88,25 @@ const Portfolio = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="section-padding">
+    <section id="portfolio" className="section-padding bg-slate-50">
       <div className="container-width">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">Our Work</h2>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="inline-block px-3 py-1 text-sm font-medium text-teal-600 bg-teal-100 rounded-full mb-4">Our Portfolio</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">Explore Our <span className="gradient-text">Creative Works</span></h2>
           <p className="text-lg text-slate-600">
-            Explore our portfolio of successful projects delivered with excellence
+            Discover our portfolio of successful projects delivered with excellence
           </p>
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-16">
           {categories.map((category) => (
             <button
               key={category.id}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors ${
                 activeFilter === category.id
-                  ? 'bg-navy-800 text-white'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  ? 'bg-navy-800 text-white shadow-md'
+                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-navy-50'
               }`}
               onClick={() => setActiveFilter(category.id)}
             >
@@ -123,9 +126,21 @@ const Portfolio = () => {
               link={project.link}
               tags={project.tags}
               className="animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              style={{ animationDelay: `${index * 150}ms` }}
             />
           ))}
+        </div>
+        
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-lg text-slate-600">No projects found in this category.</p>
+          </div>
+        )}
+        
+        <div className="text-center mt-16">
+          <Button variant="outline" size="lg" className="hover:bg-navy-100">
+            View All Projects
+          </Button>
         </div>
       </div>
     </section>
