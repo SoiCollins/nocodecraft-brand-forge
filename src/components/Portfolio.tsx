@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
 import Button from './Button';
@@ -39,14 +38,6 @@ const Portfolio = () => {
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&h=500&q=80",
       link: "https://www.compminer.com",
       tags: ["Market Research", "Analytics", "Business"],
-      category: "business"
-    },
-    {
-      title: "ReviewTamer",
-      description: "Customer feedback management system with sentiment analysis",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&h=500&q=80",
-      link: "https://reviewtamer.com",
-      tags: ["Customer Feedback", "Analytics", "Management"],
       category: "business"
     },
     {
