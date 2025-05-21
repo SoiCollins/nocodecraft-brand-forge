@@ -1,6 +1,5 @@
 
 import React from 'react';
-import Button from './Button';
 
 const About = () => {
   return (
@@ -10,7 +9,7 @@ const About = () => {
           <div className="order-2 md:order-1">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">About NocodeCraft</h2>
             <p className="text-slate-300 mb-6 leading-relaxed">
-              NocodeCraft is a premier no-code agency founded in 2018 by a team of designers, developers, 
+              NocodeCraft is a premier no-code agency founded in 2020 by a team of designers, developers, 
               and strategists passionate about creating exceptional digital experiences without traditional coding.
             </p>
             <p className="text-slate-300 mb-6 leading-relaxed">
@@ -32,8 +31,6 @@ const About = () => {
                 </p>
               </div>
             </div>
-            
-            <Button variant="secondary" className="mt-4">Meet Our Team</Button>
           </div>
           
           <div className="order-1 md:order-2 relative">
@@ -46,7 +43,7 @@ const About = () => {
               />
               
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                <span className="text-6xl font-bold text-white mb-4">5+</span>
+                <span className="text-6xl font-bold text-white mb-4">4+</span>
                 <p className="text-2xl text-white font-medium">Years of Excellence</p>
               </div>
             </div>

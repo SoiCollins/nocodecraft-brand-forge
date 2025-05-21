@@ -2,6 +2,7 @@
 import React from 'react';
 import Button from './Button';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -27,10 +28,12 @@ const Hero = () => {
             We blend strategic design with powerful no-code solutions to bring your vision to life.
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-16">
-            <Button size="lg" className="group">
-              View Our Work
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <a href="#portfolio">
+              <Button size="lg" className="group">
+                View Our Work
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </a>
             <Button variant="outline" size="lg">Our Services</Button>
           </div>
           
@@ -45,7 +48,7 @@ const Hero = () => {
               <p className="text-slate-500 mt-1">Happy Clients</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-navy-800 to-navy-600 bg-clip-text text-transparent">5+</p>
+              <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-navy-800 to-navy-600 bg-clip-text text-transparent">4+</p>
               <p className="text-slate-500 mt-1">Years Experience</p>
             </div>
             <div className="text-center">
